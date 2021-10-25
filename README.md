@@ -12,6 +12,7 @@
   - [Rest API examples](#rest-api-examples)
   - [Code of Note](#code-of-note)
     - [Types & Automapper](#types--automapper)
+    - [class-validator - validating API models before hitting endpoints](#class-validator---validating-api-models-before-hitting-endpoints)
     - [API Versioning](#api-versioning)
     - [Intelligent logging](#intelligent-logging)
       - [HTTP Request/Response Logging](#http-requestresponse-logging)
@@ -104,6 +105,11 @@ The *Types* demonstrate how using the decorator @AutoMap, you can easily setup c
 Automapper provides *profile* logic, whereby you can setup and configure how objects map to each other using a *profile* class, see: https://github.com/paulbackhouse/nestjs-poc/blob/main/src/modules/user/user.profile.map.ts
 
 This is all hooked up at https://github.com/paulbackhouse/nestjs-poc/blob/main/src/modules/user/user.module.ts and in app.module.ts
+
+### class-validator - validating API models before hitting endpoints
+class-validator provides a simple, declorative way of ensuring API models sent to endpoints are validated with out the need to create business logic to perform this propety validation.
+
+See: https://github.com/paulbackhouse/nestjs-poc/blob/main/src/modules/user/types/user.dto.ts
 
 ### API Versioning
 The POC demonstrates how NestJS supports API versioning.
