@@ -48,26 +48,26 @@ You will need to install the docker containers mentioned above before
 ### MongoDB
 Connection string: https://github.com/paulbackhouse/nestjs-poc/blob/f3906f548cbd88304bae9810ee1ccd18545575db/src/shared/services/baseRespository.service.ts#L70
 ```bash
-docker pull mongo
-docker run --name mongodb -d mongo
+$ docker pull mongo
+$ docker run --name mongodb -d mongo
 ```
 
 ### Local SNS
 You can specify a db.json file in your root for the docker container to run using local config
 Example: https://github.com/paulbackhouse/nestjs-poc/blob/main/misc/db.json
 ```bash
-docker run -d -p 9911:9911 -v "$PWD{path_from_your_root_dir_locally_to_db.json}":/etc/sns s12v/sns
+$ docker run -d -p 9911:9911 -v "$PWD{path_from_your_root_dir_locally_to_db.json}":/etc/sns s12v/sns
 ```
 ### Local SQS
 Local url: http://localhost:9325/
 ```bash
-docker run --name alpine-sqs -p 9324:9324 -p 9325:9325 -d roribio16/alpine-sqs:latest
+$ docker run --name alpine-sqs -p 9324:9324 -p 9325:9325 -d roribio16/alpine-sqs:latest
 ```
 ### Local Seq - logging app
 Local url: http://localhost:5341/
 ```bash
 # https://docs.datalust.co/docs/getting-started-with-docker
-docker run --name seq -d --restart unless-stopped -e ACCEPT_EULA=Y -p 5341:80 datalust/seq:latest
+$ docker run --name seq -d --restart unless-stopped -e ACCEPT_EULA=Y -p 5341:80 datalust/seq:latest
 ```
 
 Make sure you have these containers and they are running.
@@ -157,7 +157,6 @@ See: https://github.com/paulbackhouse/nestjs-poc/blob/main/src/shared/services/e
 There are two events controllers, one raises the *hello* Lambda and the other the *goodbye* Lambda. It also demonostrates how the logging can work for raising events within a system.
 
 See the Postman collection for */events* API calls.
-
 
 ## Mongosh: Importing data via shell & Mongosh
 As a POC, with a view towards having *shell* files available to setup a local development environment, a data import file exists which, when run, will insert a collection of users.
