@@ -22,10 +22,6 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
 
 ```bash
@@ -45,29 +41,38 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## POC Overview
+
+For local demo of Lambda functions handling SQS events within this POC, please see: https://github.com/paulbackhouse/serverless-lambda
+
+This POC provides an example of the following
+
+- Code design, thin controllers, Dependency injection (decoupling), business services, repository pattern
+- class-validator https://github.com/typestack/class-validator
+- Automapper NestJs https://automapperts.netlify.app/docs/introduction/what-why & https://automapperts.netlify.app/docs/nestjs
+- Logging, best practise https://blog.bitsrc.io/logging-best-practices-for-node-js-applications-8a0a5969b94c 
+- typegoose https://typegoose.github.io/typegoose/docs/guides/quick-start-guide/
+- mongosh, how to import data into mongoDb using shell scripts witih mongosh https://docs.mongodb.com/mongodb-shell/install/
+- Docker: Local SN, although currently not workiing as expected https://github.com/s12v/sns
+- Docker: Local SQS https://github.com/roribio/alpine-sqs
+- Docker: Local Lambda, see https://github.com/paulbackhouse/serverless-lambda for connecting project
+
+## Prerequisites
+
+You will need to install the docker containers mentioned above before
 
 ```bash
-# unit tests
-$ npm run test
+# mongo
+docker pull mongo
+docker run --name mongodb -d mongo
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
+# local sns
+# you can specify a db.json file in your root for the docker container to run using local config
+# see
+docker run -d -p 9911:9911 -v "$PWD{path_from_your_root_dir_locally_to_db.json}":/etc/sns s12v/sns
+
 ```
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
