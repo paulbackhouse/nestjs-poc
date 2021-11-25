@@ -100,7 +100,7 @@ See types: https://github.com/paulbackhouse/nestjs-poc/tree/main/src/modules/use
 
 Using Automapper, we can configure entities and Dtos (https://martinfowler.com/eaaCatalog/dataTransferObject.html) as relatable and mappable objects. 
 
-The *Types* demonstrate how using the decorator @AutoMap, you can easily setup conversion from entity to Dto with a single line of code using the *Mapper/8 service, injected as needed, see https://github.com/paulbackhouse/nestjs-poc/blob/main/src/modules/user/services/user.service.ts, lines 50 and 54 for examples.
+The *Types* demonstrate how using the decorator @AutoMap, you can easily setup conversion from entity to Dto with a single line of code using the *Mapper* service, injected as needed, see https://github.com/paulbackhouse/nestjs-poc/blob/main/src/modules/user/services/user.service.ts, lines 50 and 54 for examples.
 
 Automapper provides *profile* logic, whereby you can setup and configure how objects map to each other using a *profile* class, see: https://github.com/paulbackhouse/nestjs-poc/blob/main/src/modules/user/user.profile.map.ts
 
