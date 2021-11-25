@@ -1,6 +1,5 @@
 import { mongoose } from "@typegoose/typegoose";
-import { EnforceDocument } from "mongoose";
-import { QueryWithHelpers } from "mongoose";
+import { QueryWithHelpers, HydratedDocument } from "mongoose";
 
 export interface IKeyValue {
     key : string;
@@ -41,7 +40,7 @@ export class BaseRepository {
      * @example await this.singleAsync(this.entity.findById<EntityType>(someId));
      */
     protected async singleAsync<TEntity>(
-        query: QueryWithHelpers<EnforceDocument<TEntity, any, any> | null, EnforceDocument<TEntity, any, any>, any, TEntity>
+        query: QueryWithHelpers<HydratedDocument<TEntity, any, any> | null, HydratedDocument<TEntity, any, any>, any, TEntity>
         ) : Promise<TEntity> {
         const result = await query.exec();
         return result?.toObject();    
@@ -54,7 +53,7 @@ export class BaseRepository {
      * @example await this.manyAsync(this.entity.find<EntityType>());
      */    
     protected async manyAsync<TEntity>(
-        query: QueryWithHelpers<EnforceDocument<TEntity, any, any> | null, EnforceDocument<TEntity, any, any>, any, TEntity>
+        query: QueryWithHelpers<HydratedDocument<TEntity, any, any> | null, HydratedDocument<TEntity, any, any>, any, TEntity>
         ) : Promise<TEntity> {
         const result = await query.exec();
         return result?.map(r => r.toObject());    
